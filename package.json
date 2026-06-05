@@ -1,0 +1,64 @@
+{
+  "name": "en-vocab",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@redux-devtools/extension": "^4.0.0",
+    "@reduxjs/toolkit": "^2.11.2",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/node": "^25.9.1",
+    "@types/react": "^19.2.16",
+    "@types/react-dom": "^19.2.3",
+    "axios": "^1.13.6",
+    "formik": "^2.4.9",
+    "prop-types": "^15.8.1",
+    "react": "^18.3.1",
+    "react-confirm": "^0.5.0",
+    "react-dom": "^18.3.1",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.14.2",
+    "redux": "^5.0.1",
+    "typescript": "^6.0.3",
+    "web-vitals": "^2.1.4",
+    "yup": "^1.7.1"
+  },
+  "scripts": {
+    "start": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/prop-types": "^15.7.15",
+    "@vitejs/plugin-react": "^6.0.2",
+    "autoprefixer": "^10.5.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^3.4.19",
+    "tslib": "^2.8.1",
+    "vite": "^8.0.16",
+    "vite-tsconfig-paths": "^6.1.1"
+  }
+}
