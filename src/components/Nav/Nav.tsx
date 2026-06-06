@@ -14,9 +14,9 @@ export const Nav = () => {
     return (
         <StyledNav>
             <StyledNavLink to="/">Main</StyledNavLink>
+            <StyledNavLink to="/sprint">Sprint</StyledNavLink>
             {name === "" && <StyledNavLink to="/login">Log In</StyledNavLink>}
             {name !== "" && <button type="button" onClick={ handleLogOut} className="mr-1">Log Out</button>}
-            <StyledNavLink to="/sprint">Sprint</StyledNavLink>
         </StyledNav>
     );
 

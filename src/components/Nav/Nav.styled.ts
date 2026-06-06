@@ -6,9 +6,14 @@ export const StyledNav = styled.nav`
 `;
 
 export const StyledNavLink = styled(NavLink)`
-  padding-right: 5px;
+  padding: 5px;
+  background-color: green;
+  opacity: 0.9;
+  margin-right: 1rem;
+  border-radius: 5px;
 
   &.active {
-    color: red;
+    background-color: rgb(20 83 45);
+    color: white;
   }
 `;

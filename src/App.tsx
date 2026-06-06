@@ -20,6 +20,7 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/sprint" element={<SprintPage />} />
+        <Route path="*" element={ <MainPage />} />
       </Routes>
     </div>
   );
