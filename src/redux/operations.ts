@@ -10,14 +10,15 @@ import * as API from "@/services/api";
 import { GenericAbortSignal } from "axios";
 
 export const reduxAddWord =
-  (params: {enWord?: string, ruTransl?: string} = {}) =>
-  async (dispatch: Dispatch) => {
+  (params: {enWord?: string, ruTransl?: string, name?: string} = {}) =>
+    async (dispatch: Dispatch) => {
+      const { enWord = "", ruTransl = "", name = "" } = params;
     try {
       dispatch(getInProgress());
-      // const data = await API.getVocab({ signal: params.signal ?? null });
       const { addedWord } = await API.addWord(
-        params.enWord ?? "",
-        params.ruTransl ?? "",
+        enWord ?? "",
+        ruTransl ?? "",
+        name !== "" ? name : undefined
       );
       dispatch(getAddWordSuccess(addedWord));
     } catch (err: any) {

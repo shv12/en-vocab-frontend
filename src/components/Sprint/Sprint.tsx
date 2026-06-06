@@ -114,7 +114,7 @@ export const Sprint = () => {
             counter.current = SPRINT_COUNTER;
             getNextWord();
             countdownId.current = setInterval(() => {
-                console.log(`interval handler ${Date.now()} :: ${counter.current} :: ${scoresRef.current}`);
+                // console.log(`interval handler ${Date.now()} :: ${counter.current} :: ${scoresRef.current}`);
                 if (counter.current > 0) {
                     counter.current -= 1;
                 } else {
@@ -139,9 +139,6 @@ export const Sprint = () => {
 
     useEffect(() => {
         console.log("useEffect starts");
-        // start();
-        // setIsStarted(true);
-        // return () => { stop(); };
     }, [start]);
 
     useKeyPress('ArrowLeft', handleAccept);
@@ -157,7 +154,12 @@ export const Sprint = () => {
                 <button type="button" onClick={handleAccept} className="btn-sprint">Accept</button>
                 <button type="button" onClick={handleDecline} className="btn-sprint">Decline</button>
 </StyledButtonsContainer>
-            {!isStarted && <button type="button" onClick={handleRestart} className="btn-sprint mr-1">Restart</button>}
+            {!isStarted && <div>
+                <button type="button" onClick={handleRestart} className="btn-sprint mr-1">Restart</button>
+                <hr className="mt-1" />
+                Press Up to restart
+                </div>
+            }
             {/* <button type="button" onClick={getNextWord} className="btn-sprint">NextWord</button> */}
         </StyledSprintContainer>
     );

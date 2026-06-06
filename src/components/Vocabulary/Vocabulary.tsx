@@ -1,14 +1,16 @@
 import PropTypes from "prop-types";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { vocabDataSelector } from "@/redux/selectors";
 import { reduxDelWord } from "../../redux/operations";
 import {useAppDispatch} from '@/redux/store';
+import { userDataSelector } from "@/redux/selectors";
+
 
 function Vocabulary({ vocabData=[] }) {
     const dispatch = useAppDispatch();
     const reduxVocabData = useSelector(vocabDataSelector);
-    // console.log(reduxVocabData);
-
+    const userData = useSelector(userDataSelector);
+                const globalName = userData.name;
     function handleDelWord(wordId: string, wordIndex: number) {
         console.log("handleDelWord :: wordIndex", wordIndex);
 
@@ -20,8 +22,12 @@ function Vocabulary({ vocabData=[] }) {
         {reduxVocabData.isLoading && <div>LOADING...</div>}
         {!reduxVocabData.isLoading && reduxVocabData.error !==  null && <div>ERROR</div>}
         {!reduxVocabData.isLoading && reduxVocabData.error === null && (
-        <ul>{reduxVocabData.vocabData.map(({id, enWord, ruTransl}, index) => {
-            return (<li key={id}>{enWord} - {ruTransl[0]} - <button type="button" onClick={ () => handleDelWord(id, index)} className="border-2 border-green-900 rounded-lg p-1">X</button></li>);
+            <ul>{reduxVocabData.vocabData.map(({ id, enWord, ruTransl, name }, index) => {
+                const canDelete = globalName === "" || globalName === name || !name;
+            return (<li key={id}>
+                {enWord} - {ruTransl[0]}<sub className="text-sm font-bold">{name}</sub>
+                {canDelete && <button type="button" onClick={() => handleDelWord(id, index)} className="border-2 border-green-900 rounded-lg p-1">X</button>}
+            </li>);
         }) }</ul>
         )}
     </div>);

@@ -1,13 +1,25 @@
 import { Formik, Form, Field } from "formik";
 import * as yup from "yup";
 import { FormLabel, FormGrid, FormError } from "@/components/AddWordForm/AddWordForm.styled";
+import { useSelector } from "react-redux";
+import { userDataSelector } from "@/redux/selectors";
+import { useAppDispatch } from "@/redux/store";
+import { reduxAddWord } from "@/redux/operations";
 
 const schema = yup.object().shape({
     enWord: yup.string().required(),
     ruTransl: yup.string().required()
 });
 
-function AddWordForm({ onSubmit }: { onSubmit: (values: {enWord: string, ruTransl: string}) => void}) {
+function AddWordForm() {
+    const dispatch = useAppDispatch();
+
+    const { name } = useSelector(userDataSelector);
+
+  async function addWord({ enWord, ruTransl}: {enWord: string, ruTransl: string,}) {
+        dispatch(reduxAddWord({ enWord, ruTransl, name }));
+  }
+
     const handleSubmit = (
         values: { enWord: string, ruTransl: string },
         { resetForm, setSubmitting }: {
@@ -16,7 +28,7 @@ function AddWordForm({ onSubmit }: { onSubmit: (values: {enWord: string, ruTrans
         }) => {
             console.log('Form submit. values', values);
         setSubmitting(false);
-        onSubmit(values);
+        addWord(values);
         resetForm();
     }
 
@@ -33,7 +45,7 @@ function AddWordForm({ onSubmit }: { onSubmit: (values: {enWord: string, ruTrans
                         <Field type="text" name="ruTransl" className="border-2 border-green-900 hover:bg-green-300 focus:border-green-600"></Field>
                     <FormError name="ruTransl" component="div"></FormError>
                     </FormGrid>
-                    <button type="submit" className="border-2 rounded-lg p-4 border-green-900 hover:bg-green-300">Add word</button>
+                    <button type="submit" className="border-2 rounded-lg p-1 border-green-900 hover:bg-green-300">Add word</button>
             </Form>
         </Formik>
     );

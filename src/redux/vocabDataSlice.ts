@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 type VocabWord = {
   id: string,
   enWord: string,
-  ruTransl: string[]
+  ruTransl: string[],
+  name?: string,
 }
 
 type InitialState = {

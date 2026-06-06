@@ -1,10 +1,12 @@
 import axios, { GenericAbortSignal } from "axios";
 
-axios.defaults.baseURL = "http://localhost:3001/api";
+// axios.defaults.baseURL = "http://localhost:3001/api";
+axios.defaults.baseURL = "https://en-vocab-backend.onrender.com/api";
 
-export const addWord = async (enWord: string, ruTransl: string) => {
+export const addWord = async (enWord: string, ruTransl: string, name?: string) => {
   const response = await axios.post("/vocab/addWord", {
     word: { enWord, ruTransl },
+    name: name,
   });
   return response.data;
 }
