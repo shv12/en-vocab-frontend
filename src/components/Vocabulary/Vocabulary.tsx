@@ -17,8 +17,8 @@ function Vocabulary({ vocabData=[] }) {
         dispatch(reduxDelWord({ wordId, wordIndex }));
 }
 
-    return (<div>
-        <h1>Vocabulary</h1>
+    return (<div className="border-2 border-green-900 rounded-lg mt-2 p-2">
+        <h1 className="section-title">Vocabulary</h1>
         {reduxVocabData.isLoading && <div>LOADING...</div>}
         {!reduxVocabData.isLoading && reduxVocabData.error !==  null && <div>ERROR</div>}
         {!reduxVocabData.isLoading && reduxVocabData.error === null && (
@@ -26,7 +26,7 @@ function Vocabulary({ vocabData=[] }) {
                 const canDelete = globalName === "" || globalName === name || !name;
             return (<li key={id}>
                 {enWord} - {ruTransl[0]}<sub className="text-sm font-bold">{name}</sub>
-                {canDelete && <button type="button" onClick={() => handleDelWord(id, index)} className="border-2 border-green-900 rounded-lg p-1">X</button>}
+                {canDelete && <button type="button" onClick={() => handleDelWord(id, index)} className="border-2 border-green-900 rounded-lg p-1 ml-1">X</button>}
             </li>);
         }) }</ul>
         )}
