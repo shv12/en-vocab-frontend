@@ -9,9 +9,4 @@ export const StyledSprintContainer = styled.div`
 `;
 
 export const StyledButtonsContainer = styled.div`
-    text-align: center;
-    width: 15rem;
-    margin: 1rem auto 0;
-    display: flex;
-    justify-content: space-between;
 `;
