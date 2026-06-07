@@ -39,7 +39,7 @@
 }
 
 .btn-sprint {
-  @apply border-2 border-green-900 hover:bg-green-300 rounded-lg p-1;
+  @apply border-2 border-green-900 hover:bg-green-300 rounded-lg p-1 whitespace-nowrap;
 }
 
 .section-title {
