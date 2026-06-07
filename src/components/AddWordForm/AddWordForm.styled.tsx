@@ -9,12 +9,12 @@ export const FormGrid = styled.div`
 `;
 
 export const FormLabel = styled.label`
+  display: block;
   justify-self: right;
-  margin-right: 1vw;
+  margin-right: 1rem;
 `;
 
 export const FormError = styled(ErrorMessage)`
-  grid-column: 1 / span 2;
   justify-self: center;
   color: red;
   margin-bottom: 1vh;

@@ -16,7 +16,7 @@ export const Nav = () => {
             <StyledNavLink to="/">Main</StyledNavLink>
             <StyledNavLink to="/sprint">Sprint</StyledNavLink>
             {name === "" && <StyledNavLink to="/login">Log In</StyledNavLink>}
-            {name !== "" && <button type="button" onClick={ handleLogOut} className="mr-1">Log Out</button>}
+            {name !== "" && <button type="button" onClick={ handleLogOut} className="ml-4 en-vocab-btn ">Log Out</button>}
         </StyledNav>
     );
 

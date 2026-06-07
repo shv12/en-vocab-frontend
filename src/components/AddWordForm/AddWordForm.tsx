@@ -37,15 +37,31 @@ function AddWordForm() {
             <Form autoComplete="off" className="border-2 rounded-xl border-green-900 p-2">
 
                 <h1 className="section-title">Add word form</h1>
+                <div className="flex justify-center">
                 <FormGrid>
-                        <FormLabel htmlFor="enWord">Word </FormLabel>
-                    <Field type="text" name="enWord" className="border-2 border-green-900 hover:bg-green-300 focus:border-green-600"></Field>
-                    <FormError name="enWord" component="div"></FormError>
-                        <FormLabel htmlFor="ruTransl">Перевод </FormLabel>
-                        <Field type="text" name="ruTransl" className="border-2 border-green-900 hover:bg-green-300 focus:border-green-600"></Field>
-                    <FormError name="ruTransl" component="div"></FormError>
+                        <FormLabel htmlFor="enWord">Word:</FormLabel>
+                        <div>
+                            <Field type="text" name="enWord" className="add-word-field" placeholder="Enter English word..."></Field>
+                                <div>
+                                    <FormError name="enWord" component="div"></FormError>
+                                </div>
+                        </div>
+                        <FormLabel htmlFor="ruTransl">Перевод:</FormLabel>
+                        <div>
+                            <Field type="text" name="ruTransl" className="add-word-field" placeholder="Введите перевод..."></Field>
+                            <div>
+                                <FormError name="ruTransl" component="div"></FormError>
+                            </div>
+                        </div>
+                    <div className="justify-end">
+                    </div>
+                    <div>
+                    </div>
                     </FormGrid>
-                    <button type="submit" className="border-2 rounded-lg p-1 border-green-900 hover:bg-green-300">Add word</button>
+                    <div className="self-center ml-4">
+                        <button type="submit" className="en-vocab-btn shadow-lg">Add word</button>
+                    </div>
+                    </div>
             </Form>
         </Formik>
     );

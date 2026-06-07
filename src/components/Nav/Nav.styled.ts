@@ -2,18 +2,28 @@ import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 
 export const StyledNav = styled.nav`
-  margin-bottom: 15px;
+  display: flex;
+  align-content: center;
+  justify-content: end;
 `;
 
 export const StyledNavLink = styled(NavLink)`
-  padding: 5px;
-  background-color: green;
+  display: flex;
+  align-items: center;
+  padding: 5px 20px;
+  background-color: rgb(34 197 94);
   opacity: 0.9;
-  margin-right: 1rem;
-  border-radius: 5px;
+  margin-left: 1rem;
+  border-radius: 50px;
+  color: rgb(243 244 246);
 
   &.active {
     background-color: rgb(20 83 45);
-    color: white;
+    color: #FFFFFFFF;
+    box-shadow: 0px 0px 20px #00FF00;
+  }
+
+  &:hover {
+    background-color: rgb(21 128 61);
   }
 `;

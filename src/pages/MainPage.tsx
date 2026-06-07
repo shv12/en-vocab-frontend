@@ -14,7 +14,7 @@ export const MainPage = () => {
   }, [dispatch]);
 
     return <div>MainPage
-        <hr />
+        <hr className="mb-2" />
         <AddWordForm />
         <Vocabulary /></div>
 }

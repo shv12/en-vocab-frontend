@@ -4,5 +4,5 @@ import { userDataSelector } from "@/redux/selectors";
 export const UserMenu = () => {
     const userData = useSelector(userDataSelector);
 
-    return <div>{userData.name}</div>;
+    return <div className="text-center">{userData.name}</div>;
 }
