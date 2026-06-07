@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const StyledSprintContainer = styled.div`
-    margin: 30px auto;
+    margin: 0 auto;
 
     & h1 {
         text-align: center;

@@ -19,7 +19,7 @@ function Vocabulary({ vocabData=[] }) {
         dispatch(reduxDelWord({ wordId, wordIndex }));
 }
 
-    return (<div className="border-2 border-green-900 rounded-lg mt-2 p-2">
+    return (<div className="en-vocab-section mt-2">
         <h1 className="section-title">Vocabulary</h1>
         {reduxVocabData.isLoading && <div>LOADING...</div>}
         {!reduxVocabData.isLoading && reduxVocabData.error !==  null && <div>ERROR</div>}

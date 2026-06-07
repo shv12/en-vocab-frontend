@@ -12,7 +12,7 @@ const SprintPage = () => {
     return () => abortController.abort();
   }, [dispatch]);
 
-    return <div>Sprint page<hr /><Sprint /></div>;
+    return <div>Sprint page<hr className="mb-2" /><Sprint /></div>;
 }
 
 export default SprintPage;

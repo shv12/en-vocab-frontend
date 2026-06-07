@@ -34,7 +34,7 @@ function AddWordForm() {
 
     return (
         <Formik initialValues={{ enWord: '', ruTransl: '' }} validationSchema={schema} onSubmit={handleSubmit}>
-            <Form autoComplete="off" className="border-2 rounded-xl border-green-900 p-2">
+            <Form autoComplete="off" className="en-vocab-section">
 
                 <h1 className="section-title">Add word form</h1>
                 <div className="flex justify-center">

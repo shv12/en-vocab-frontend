@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useSelector } from "react-redux";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 // import { Modal } from "components/Modal";
 import { StyledSprintContainer, StyledButtonsContainer } from "./Sprint.styled.js";
 import { vocabDataSelector } from "../../redux/selectors.ts";
@@ -137,29 +139,40 @@ export const Sprint = () => {
         }
     }, [scores]);
 
-    useEffect(() => {
-        console.log("useEffect starts");
-    }, [start]);
+    // useEffect(() => {
+    //     console.log("useEffect starts");
+    // }, [start]);
 
     useKeyPress('ArrowLeft', handleAccept);
     useKeyPress('ArrowRight', handleDecline);
     useKeyPress('ArrowUp', start);
 
     return (
-        <StyledSprintContainer>
+        <StyledSprintContainer className="en-vocab-section">
             <div>Record - { record } Scores - { scores}</div>
-            <h1 className="text-4xl">{countdown}</h1>
+            <h1 className="text-4xl text-gray-500">{countdown}</h1>
             {currentWord.enWord && <h1 className="text-4xl">{currentWord.enWord} - {currentWord.fakeTransl ?? currentWord.ruTransl![0]}</h1>}
-            <StyledButtonsContainer>
-                <button type="button" onClick={handleAccept} className="btn-sprint">Accept</button>
-                <button type="button" onClick={handleDecline} className="btn-sprint">Decline</button>
-</StyledButtonsContainer>
+            <StyledButtonsContainer className="grid grid-cols-3 items-center w-full">
+  {/* Column 1: Justified to the left */}
+  <div className="flex justify-start">
             {!isStarted && <div>
                 <button type="button" onClick={handleRestart} className="btn-sprint mr-1">Restart</button>
-                <hr className="mt-1" />
-                Press Up to restart
                 </div>
             }
+  </div>
+  {/* Column 2: Centered perfectly relative to the entire page */}
+  <div className="flex justify-center gap-4">
+                    <button type="button" onClick={handleAccept} className="btn-sprint"><FontAwesomeIcon icon={ faArrowLeft } />  Accept</button>
+                <button type="button" onClick={handleDecline} className="btn-sprint">Decline <FontAwesomeIcon icon={ faArrowRight } /></button>
+  </div>
+  {/* Column 3: Empty hidden spacer to balance out the grid symmetry */}
+  <div className="invisible" aria-hidden="true" />
+            </StyledButtonsContainer>
+            {!isStarted && <div>
+                <hr className="mt-1" />
+                Press Up to restart
+            </div>}
+
             {/* <button type="button" onClick={getNextWord} className="btn-sprint">NextWord</button> */}
         </StyledSprintContainer>
     );
