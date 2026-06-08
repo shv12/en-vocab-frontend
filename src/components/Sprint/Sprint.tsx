@@ -25,6 +25,7 @@ export const Sprint = () => {
     const [currentWord, setCurrentWord] = useState({} as CurrentWord);
     const [scores, setScores] = useState(0);
     const [record, setRecord] = useState(0);
+    const [prevIndex, setPrevIndex] = useState(0);
 
     const counter = useRef(10);
     const countdownId = useRef(0);
@@ -36,7 +37,11 @@ export const Sprint = () => {
     const getNextWord = useCallback(() => {
         // console.log("getNextWord :: reduxVocabData", reduxVocabData);
         if (reduxVocabData.vocabData.length > 0) {
-            let index = Math.round(Math.random() * (reduxVocabData.vocabData.length - 1));
+            let index = 0;
+            do {
+                index = Math.round(Math.random() * (reduxVocabData.vocabData.length - 1));
+            } while (index === prevIndex);
+            setPrevIndex(index);
             // console.log("getNextWord :: index", index);
             const word = reduxVocabData.vocabData[index];
             console.log("getNextWord :: word", word);
@@ -47,7 +52,7 @@ export const Sprint = () => {
                 setCurrentWord({ ...word });
             }
         }
-    }, [reduxVocabData]);
+    }, [reduxVocabData, prevIndex]);
 
     function handleAccept() {
         console.log('Sprint :: handleAccept :: isStarted', isStarted);

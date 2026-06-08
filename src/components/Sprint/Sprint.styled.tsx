@@ -9,4 +9,5 @@ export const StyledSprintContainer = styled.div`
 `;
 
 export const StyledButtonsContainer = styled.div`
+    margin-top: 1rem;
 `;
